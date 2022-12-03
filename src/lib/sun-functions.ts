@@ -1,27 +1,26 @@
 import SunCalc from 'suncalc';
-import { isAfter, addDays } from 'date-fns';
+import { isBefore, isAfter, addDays } from 'date-fns';
 
 
-const KEY_SUNRISE = 'sunrise';
-const KEY_SUNSET = 'sunset';
+export function getSunrise(date: Date, latitude: Number, longitude: Number): Date {
+	let sunEvents = SunCalc.getTimes(date, latitude, longitude);
 
-export function getNextSunrise(date: Date, latitude: Number, longitude: Number) {
-	return getNextSunEvent(date, latitude, longitude, KEY_SUNRISE);
-}
-
-
-export function getNextSunset(date: Date, latitude: Number, longitude: Number) {
-	return getNextSunEvent(date, latitude, longitude, KEY_SUNSET);
-}
-
-function getNextSunEvent(date: Date, latitude: Number, longitude: Number, event: string) {
-	console.assert([KEY_SUNSET, KEY_SUNRISE].includes(event));
-
-	let eventDate = SunCalc.getTimes(date, latitude, longitude)[event];
-
-	if (isAfter(date, eventDate)) {
-		eventDate = SunCalc.getTimes(addDays(date, 1), latitude, longitude)[event];
+	// If we are already past sunset, then take the sunrise from the next day.
+	if (isAfter(date, sunEvents.sunset)) {
+		sunEvents = SunCalc.getTimes(addDays(date, 1), latitude, longitude);
 	}
 
-	return eventDate;
+	return sunEvents.sunrise
+}
+
+
+export function getSunset(date: Date, latitude: Number, longitude: Number): Date {
+	let sunEvents = SunCalc.getTimes(date, latitude, longitude);
+
+	// If we are still before the sunrise, then take the sunset from the previous day.
+	if (isBefore(date, sunEvents.sunrise)) {
+		sunEvents = SunCalc.getTimes(addDays(date, -1), latitude, longitude);
+	}
+
+	return sunEvents.sunset
 }

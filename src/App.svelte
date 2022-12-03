@@ -1,8 +1,11 @@
 <script lang="ts">
-	import { onMount } from 'svelte';
+	import { onMount } from "svelte";
 
-	import {getNextSunrise, getNextSunset} from './lib/sun-functions';
-	import {format} from 'date-fns';
+	import { getSunrise, getSunset } from "./lib/sun-functions";
+	import { format, set, differenceInSeconds } from "date-fns";
+
+
+	const SECONDS_PER_DAY = 24 * 60 * 60;
 
 
 	let sections = [
@@ -94,7 +97,6 @@
 
 	let ticks = Array(sections.length * 10);
 
-
 	let time = new Date();
 
 	onMount(() => {
@@ -107,27 +109,43 @@
 		};
 	});
 
-	$: timeString = format(time, 'H:mm:ss');
+	$: timeString = format(time, "H:mm:ss");
 
-	$: nextSunrise = getNextSunrise(
+	$: sunrise = getSunrise(
 		time,
 		51.93410472914457,
 		8.868428487177423
 	);
 
-	$: nextSunset = getNextSunset(
+	$: sunset = getSunset(
 		time,
 		51.93410472914457,
 		8.868428487177423
 	);
 
+	function timeToAngle(date: Date): Number {
+		let midnight = set(date, { hours: 0, minutes: 0, seconds: 0, milliseconds: 0 });
+
+		return (differenceInSeconds(date, midnight) / SECONDS_PER_DAY) * 360 - 180;
+	}
 </script>
 
 <main>
-	{timeString}
-	{nextSunrise}
-	{nextSunset}
 	<div class="clock">
+
+		<div class="clock__indicator clock__indicator--0">
+			00:00
+		</div>
+		<div class="clock__indicator clock__indicator--6">
+			06:00
+		</div>
+		<div class="clock__indicator clock__indicator--12">
+			12:00
+		</div>
+		<div class="clock__indicator clock__indicator--18">
+			18:00
+		</div>
+
 		<div class="clock__sections">
 			{#each sections as section, index}
 				<div
@@ -159,6 +177,19 @@
 		</div>
 
 		<div class="clock__inner-circle" />
+
+		<div
+			class="clock__hand clock__hand--sunrise"
+			style={`transform: translateX(-50%) rotateZ(${timeToAngle(sunrise)}deg);`} />
+
+		<div
+			class="clock__hand clock__hand--sunset"
+			style={`transform: translateX(-50%) rotateZ(${timeToAngle(sunset)}deg);`} />
+
+		<div
+			class="clock__hand"
+			style={`transform: translateX(-50%) rotateZ(${timeToAngle(time)}deg);`} />
+
 	</div>
 </main>
 
@@ -280,6 +311,52 @@
 			border-radius: 50%;
 
 			background-color: #fff;
+		}
+
+		&__hand {
+			position: absolute;
+			top: 0;
+			left: 50%;
+
+			width: 2 * $px;
+			height: $radius;
+
+			transform-origin: center bottom;
+
+			background-color: red;
+
+			&--sunrise {
+				background-color: orange;
+			}
+
+			&--sunset {
+				background-color: blue;
+			}
+		}
+
+		&__indicator {
+			position: absolute;
+			top: -1.5 * $rem;
+			left: 0;
+
+			width: $diameter;
+			height: calc($diameter + 3 * $rem);
+
+			text-align: center;
+
+			transform-origin: center center;
+
+			&--0 {
+				transform: rotate(180deg);
+			}
+
+			&--6 {
+				transform: rotate(270deg);
+			}
+
+			&--18 {
+				transform: rotate(90deg);
+			}
 		}
 	}
 </style>
