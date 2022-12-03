@@ -1,4 +1,10 @@
 <script lang="ts">
+	import { onMount } from 'svelte';
+
+	import {getNextSunrise, getNextSunset} from './lib/sun-functions';
+	import {format} from 'date-fns';
+
+
 	let sections = [
 		{
 			zodiacSign: "Rat",
@@ -87,9 +93,40 @@
 	];
 
 	let ticks = Array(sections.length * 10);
+
+
+	let time = new Date();
+
+	onMount(() => {
+		const interval = setInterval(() => {
+			time = new Date();
+		}, 1000);
+
+		return () => {
+			clearInterval(interval);
+		};
+	});
+
+	$: timeString = format(time, 'H:mm:ss');
+
+	$: nextSunrise = getNextSunrise(
+		time,
+		51.93410472914457,
+		8.868428487177423
+	);
+
+	$: nextSunset = getNextSunset(
+		time,
+		51.93410472914457,
+		8.868428487177423
+	);
+
 </script>
 
 <main>
+	{timeString}
+	{nextSunrise}
+	{nextSunset}
 	<div class="clock">
 		<div class="clock__sections">
 			{#each sections as section, index}
