@@ -13,6 +13,7 @@
 	import SolarTime from "./Period/SolarTime.svelte";
 	import Zodiac from "./Period/Zodiac.svelte";
 	import Numeral from "./Period/Numeral.svelte";
+	import Ticks from "./Period/Ticks.svelte";
 
 	// Props
 	export let timedPeriod: TimedPeriod;
@@ -30,6 +31,8 @@
 <g
 	class={`period period--${slugify(period.solarTime)}`}
 	style={`transform: rotate(${startAngle}rad);`}>
+
+	<Ticks {angle} {radius} />
 
 	<path
 		class="period__background"

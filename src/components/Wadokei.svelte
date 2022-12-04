@@ -123,7 +123,7 @@
 	class="wadokei"
 	width="800"
 	height="800"
-	viewBox="-1210 -1210 2420 2420">
+	viewBox="-1410 -1410 2820 2820">
 
 	{#each getTimedPeriods(dayPeriods, sunrise, sunset) as period}
 		<SvgPeriod timedPeriod={period} {radius} />
