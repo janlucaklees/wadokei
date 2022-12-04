@@ -47,4 +47,8 @@
 </g>
 
 <style lang="scss">
+	.hour {
+		font-size: 1.5em;
+		font-family: 'Pinyon Script', cursive;
+	}
 </style>
