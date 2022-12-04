@@ -5,25 +5,29 @@
 
 	// Props
 	export let angle: number;
-	export let radius: number;
+	export let radius1: number;
+	export let radius2: number;
 
+	export let amount: number;
 
-	$: distanceBetweenTicks = angle / 10;
+	$: distanceBetweenTicks = angle / amount;
+
+	$: halfAngle = angle / 2;
+	$: startAngle = -halfAngle;
 
 </script>
 
 <g
 	class="ticks">
 
-	<HLine {angle} radius={radius + 50} />
+	<HLine {angle} radius={radius1} />
+	<HLine {angle} radius={radius2} />
 
-	<VLine angle={-angle / 2} radius1={radius} radius2={radius+50} />
-	<VLine angle={angle / 2} radius1={radius} radius2={radius+50} />
+	<VLine angle={-halfAngle} radius1={radius1} radius2={radius2} />
+	<VLine angle={halfAngle} radius1={radius1} radius2={radius2} />
 
-
-	{#each Array(5) as _, index}
-		<VLine angle={distanceBetweenTicks * index} radius1={radius} radius2={radius+50} />
-		<VLine angle={-distanceBetweenTicks * index} radius1={radius} radius2={radius+50} />
+	{#each Array(amount) as _, index}
+		<VLine angle={startAngle + distanceBetweenTicks * index} radius1={radius1} radius2={radius2} />
 	{/each}
 
 </g>

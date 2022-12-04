@@ -4,6 +4,7 @@
 
 	// Components
 	import SvgPeriod from "./Period.svelte";
+	import SvgHour from "./Hour.svelte";
 	import SvgHand from "./Hand.svelte";
 
 	// Imports
@@ -123,7 +124,7 @@
 	class="wadokei"
 	width="800"
 	height="800"
-	viewBox="-1410 -1410 2820 2820">
+	viewBox="-1510 -1510 3020 3020">
 
 	{#each getTimedPeriods(dayPeriods, sunrise, sunset) as period}
 		<SvgPeriod timedPeriod={period} {radius} />
@@ -131,6 +132,10 @@
 
 	{#each getTimedPeriods(nightPeriods, sunset, addDays(sunrise, 1)) as period}
 		<SvgPeriod timedPeriod={period} {radius} />
+	{/each}
+
+	{#each Array(24) as _, hour}
+		<SvgHour {hour} {radius} />
 	{/each}
 
 	<SvgHand {time} {radius} />

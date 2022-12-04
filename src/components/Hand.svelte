@@ -3,6 +3,7 @@
 
 	// Imports
 	import dateToRadians from "../lib/dateToRadians";
+	import VLine from "./Wadokei/VLine.svelte";
 
 	// Props
 	export let time: Date;
@@ -12,14 +13,10 @@
 	$: angle = dateToRadians(time) + Math.PI;
 </script>
 
-<line
-	x1="0"
-	y1="0"
-	x2="0"
-	y2={`-${radius}`}
-	stroke="red"
+<path
+	d="M 0 -{radius + 125} L 50 -{radius + 75} L 0 -{ radius + 25} L -50 -{radius + 75} Z"
 	style={`transform: rotate(${angle}rad);`}>
-</line>
+</path>
 
 <style lang="scss">
 </style>

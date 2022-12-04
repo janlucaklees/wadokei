@@ -32,7 +32,7 @@
 	class={`period period--${slugify(period.solarTime)}`}
 	style={`transform: rotate(${startAngle}rad);`}>
 
-	<Ticks {angle} {radius} />
+	<Ticks {angle} radius1={radius} radius2={radius + 50} amount={10} />
 
 	<path
 		class="period__background"

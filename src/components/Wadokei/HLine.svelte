@@ -11,6 +11,7 @@
 	stroke="black"
 	stroke-width="8"
 	fill="transparent"
+	{...$$props}
 	d={`M ${generateCircleSectionPath(angle, radius)}`}>
 </path>
 
