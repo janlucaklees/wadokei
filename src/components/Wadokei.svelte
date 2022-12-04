@@ -7,7 +7,7 @@
 	import SvgHand from "./Hand.svelte";
 
 	// Imports
-	import { addDays } from "date-fns";
+	import {addDays, set} from "date-fns";
 	import SunCalc from "suncalc";
 
 	import getTimedPeriods from "../lib/getTimedPeriods.js";
@@ -16,7 +16,8 @@
 	export let time: Date;
 	export let latitude: Number;
 	export let longitude: Number;
-	export let radius: Number = 400;
+
+	export const radius: Number = 1200;
 
 
 	const nightPeriods: Array<Period> = [
@@ -112,10 +113,17 @@
 	$: sunEvents = SunCalc.getTimes(time, latitude, longitude);
 	$: sunrise = sunEvents.sunrise;
 	$: sunset  = sunEvents.sunset;
+	// $: sunrise = set( new Date(), { hours: 6, minutes: 0, seconds: 0, milliseconds: 0 });
+	// $: sunset  = set( new Date(), { hours: 18, minutes: 0, seconds: 0, milliseconds: 0 });
 
 </script>
 
-<svg width="800" height="800" viewBox="-400 -400 800 800">
+<svg
+	style="--radius: {radius}"
+	class="wadokei"
+	width="800"
+	height="800"
+	viewBox="-1210 -1210 2420 2420">
 
 	{#each getTimedPeriods(dayPeriods, sunrise, sunset) as period}
 		<SvgPeriod timedPeriod={period} {radius} />
@@ -130,4 +138,7 @@
 </svg>
 
 <style lang="scss">
+	.wadokei {
+		font-size: calc(var(--radius) * 0.04 * 1px);
+	}
 </style>
