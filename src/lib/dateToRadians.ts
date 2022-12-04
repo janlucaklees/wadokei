@@ -1,11 +1,11 @@
 import {differenceInSeconds} from "date-fns";
 
-import secondsToDegrees from "./secondsToDegrees";
+import secondsToRadians from "./secondsToRadians";
 import getStartOfDay from "./getStartOfDay";
 
 
-export default function dateToDegrees(date: Date): number {
-	return secondsToDegrees(
+export default function dateToRadians(date: Date): number {
+	return secondsToRadians(
 		differenceInSeconds(
 			date,
 			getStartOfDay(date)

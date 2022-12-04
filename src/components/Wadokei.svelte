@@ -16,6 +16,7 @@
 	export let time: Date;
 	export let latitude: Number;
 	export let longitude: Number;
+	export let radius: Number = 400;
 
 
 	const nightPeriods: Array<Period> = [
@@ -117,14 +118,14 @@
 <svg width="800" height="800" viewBox="-400 -400 800 800">
 
 	{#each getTimedPeriods(dayPeriods, sunrise, sunset) as period}
-		<SvgPeriod timedPeriod={period} />
+		<SvgPeriod timedPeriod={period} {radius} />
 	{/each}
 
 	{#each getTimedPeriods(nightPeriods, sunset, addDays(sunrise, 1)) as period}
-		<SvgPeriod timedPeriod={period} />
+		<SvgPeriod timedPeriod={period} {radius} />
 	{/each}
 
-	<SvgHand {time} />
+	<SvgHand {time} {radius} />
 
 </svg>
 

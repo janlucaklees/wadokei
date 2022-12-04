@@ -5,33 +5,27 @@
 	// Imports
 	import slugify from "slugify";
 
-	import secondsToDegrees from "../lib/secondsToDegrees";
+	import secondsToRadians from "../lib/secondsToRadians";
+	import generateCircleSectionPath from "../lib/generateCircleSectionPath.js";
 
 	// Props
 	export let timedPeriod: TimedPeriod;
+	export let radius: number;
 
 
 	$: period = timedPeriod.period;
-	$: halfDurationAngle = secondsToDegrees(timedPeriod.duration) / 2;
-	$: startAngle = secondsToDegrees(timedPeriod.start) + halfDurationAngle + 180;
+	$: angle = secondsToRadians(timedPeriod.duration);
+	$: startAngle = secondsToRadians(timedPeriod.start) + (angle / 2) + Math.PI;
 
-	let r = 350;
-	$: x = Math.sin(halfDurationAngle * (Math.PI / 180)) * r;
-	$: y = r / (1 / Math.cos(halfDurationAngle * (Math.PI / 180)));
-
-
-
-	$: console.log(x);
-	$: console.log(y);
 </script>
 
 <g
 	class={`period period--${slugify(period.solarTime)}`}
-	style={`transform: rotate(${startAngle}deg);`}>
+	style={`transform: rotate(${startAngle}rad);`}>
 
 	<path
 		class="period__background"
-		d={`M 0 0 L ${x} -${y} A 350 350 0 0 0 -${x} -${y} Z`}>
+		d={`M 0 0 L ${generateCircleSectionPath(angle, radius)} Z`}>
 	</path>
 
 	<text

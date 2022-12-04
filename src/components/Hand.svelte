@@ -2,22 +2,23 @@
 	// Types
 
 	// Imports
-	import dateToDegrees from "../lib/dateToDegrees";
+	import dateToRadians from "../lib/dateToRadians";
 
 	// Props
 	export let time: Date;
+	export let radius: number;
 
 
-	$: angle = dateToDegrees(time) + 180;
+	$: angle = dateToRadians(time) + Math.PI;
 </script>
 
 <line
 	x1="0"
 	y1="0"
 	x2="0"
-	y2="-350"
+	y2={`-${radius}`}
 	stroke="red"
-	style={`transform: rotate(${angle}deg);`}>
+	style={`transform: rotate(${angle}rad);`}>
 </line>
 
 <style lang="scss">
