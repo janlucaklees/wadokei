@@ -32,7 +32,7 @@
 	class={`period period--${slugify(period.solarTime)}`}
 	style={`transform: rotate(${startAngle}rad);`}>
 
-	<Ticks {angle} radius1={radius} radius2={radius + 50} amount={10} />
+	<Ticks {angle} radius1={radius} radius2={radius + 50} amount={10}/>
 
 	<path
 		class="period__background"
@@ -40,13 +40,13 @@
 		d={`M ${generateCircleSectionPath(angle, radius)} L ${generateCircleSectionPath(angle, radius * 0.59, true)} Z`}>
 	</path>
 
-	<SolarTime {angle} {radius} >
+	<SolarTime {angle} {radius}>
 		{period.solarTime}
 	</SolarTime>
 
-	<Zodiac {angle} {radius} symbol={period.zodiacSymbol} sign={period.zodiacSign} />
+	<Zodiac {angle} {radius} symbol={period.zodiacSymbol} sign={period.zodiacSign}/>
 
-	<Numeral {angle} {radius} numeral={period.japaneseNumeral} strikes={period.strikes} />
+	<Numeral {angle} {radius} numeral={period.japaneseNumeral} strikes={period.strikes}/>
 
 </g>
 

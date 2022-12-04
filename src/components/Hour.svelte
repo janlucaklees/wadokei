@@ -20,16 +20,16 @@
 	class={`hour`}
 	style={`transform: rotate(${startAngle}rad);`}>
 
-	<Ticks {angle} radius1={radius+100} radius2={radius + 150} amount={5} />
+	<Ticks {angle} radius1={radius+100} radius2={radius + 150} amount={5}/>
 
-	<VLine angle={-halfAngle} radius1={radius+100} radius2={radius+200} />
-	<VLine angle={halfAngle} radius1={radius+100} radius2={radius+200} />
+	<VLine angle={-halfAngle} radius1={radius+100} radius2={radius+200}/>
+	<VLine angle={halfAngle} radius1={radius+100} radius2={radius+200}/>
 
 	<HLine
 		id="time"
 		stroke="transparent"
 		angle={angle}
-		radius={radius+250} />
+		radius={radius+250}/>
 
 	<text
 		style="transform: rotate({-halfAngle}rad)"

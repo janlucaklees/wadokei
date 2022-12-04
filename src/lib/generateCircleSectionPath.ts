@@ -3,7 +3,7 @@ export default function generateCircleSectionPath(angle: number, radius: number,
 	const x = Math.sin(halfAngle) * radius;
 	const y = Math.cos(halfAngle) * radius;
 
-	if(reversed) {
+	if (reversed) {
 		return `${x} ${-y} A ${radius} ${radius} 0 0 0 ${-x} ${-y}`
 	}
 

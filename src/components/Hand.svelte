@@ -58,7 +58,7 @@
 
 <style lang="scss">
 	.hand {
-		&__time{
+		&__time {
 			font-size: 2em;
 			font-family: 'Pinyon Script', cursive;
 

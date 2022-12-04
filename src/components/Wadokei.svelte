@@ -8,7 +8,7 @@
 	import SvgHand from "./Hand.svelte";
 
 	// Imports
-	import {addDays, set} from "date-fns";
+	import {addDays} from "date-fns";
 	import SunCalc from "suncalc";
 
 	import getTimedPeriods from "../lib/getTimedPeriods.js";
@@ -113,7 +113,7 @@
 
 	$: sunEvents = SunCalc.getTimes(time, latitude, longitude);
 	$: sunrise = sunEvents.sunrise;
-	$: sunset  = sunEvents.sunset;
+	$: sunset = sunEvents.sunset;
 	// $: sunrise = set( new Date(), { hours: 6, minutes: 0, seconds: 0, milliseconds: 0 });
 	// $: sunset  = set( new Date(), { hours: 18, minutes: 0, seconds: 0, milliseconds: 0 });
 
@@ -127,18 +127,18 @@
 	viewBox="-1510 -1510 3020 3020">
 
 	{#each getTimedPeriods(dayPeriods, sunrise, sunset) as period}
-		<SvgPeriod timedPeriod={period} {radius} />
+		<SvgPeriod timedPeriod={period} {radius}/>
 	{/each}
 
 	{#each getTimedPeriods(nightPeriods, sunset, addDays(sunrise, 1)) as period}
-		<SvgPeriod timedPeriod={period} {radius} />
+		<SvgPeriod timedPeriod={period} {radius}/>
 	{/each}
 
 	{#each Array(24) as _, hour}
-		<SvgHour {hour} {radius} />
+		<SvgHour {hour} {radius}/>
 	{/each}
 
-	<SvgHand {time} {radius} />
+	<SvgHand {time} {radius}/>
 
 </svg>
 

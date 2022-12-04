@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { onMount } from "svelte";
+	import {onMount} from "svelte";
 
 	import Wadokei from "./components/Wadokei.svelte";
 
@@ -15,7 +15,7 @@
 </script>
 
 <main>
-	<Wadokei {time} latitude={51.93410472914457} longitude={8.868428487177423} />
+	<Wadokei {time} latitude={51.93410472914457} longitude={8.868428487177423}/>
 </main>
 
 <style lang="scss">

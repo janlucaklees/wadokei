@@ -1,6 +1,6 @@
 import type Period from "../types/TypePeriod";
 import type TimedPeriod from "../types/TypeTimedPeriod";
-import {differenceInSeconds, set} from "date-fns";
+import {differenceInSeconds} from "date-fns";
 import getStartOfDay from "./getStartOfDay";
 
 
