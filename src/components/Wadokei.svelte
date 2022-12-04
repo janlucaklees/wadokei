@@ -144,6 +144,8 @@
 
 <style lang="scss">
 	.wadokei {
+		width: 100%;
+		height: 100%;
 		font-size: calc(var(--radius) * 0.04 * 1px);
 	}
 </style>
