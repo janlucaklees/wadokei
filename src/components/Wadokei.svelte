@@ -15,10 +15,10 @@
 
 	// Props
 	export let time: Date;
-	export let latitude: Number;
-	export let longitude: Number;
+	export let latitude: number;
+	export let longitude: number;
 
-	export const radius: Number = 1200;
+	export const radius: number = 1200;
 
 
 	const nightPeriods: Array<Period> = [
@@ -63,7 +63,7 @@
 			japaneseNumeral: "七",
 			strikes: "7",
 			solarTime: "before dawn",
-		},
+		} as Period,
 	];
 	const dayPeriods: Array<Period> = [
 		{
