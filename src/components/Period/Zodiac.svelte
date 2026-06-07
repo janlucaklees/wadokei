@@ -50,14 +50,14 @@
 	</text>
 
 	<path
-		stroke="black"
+		stroke="var(--line-color)"
 		stroke-width="8"
 		fill="transparent"
 		d={`M ${generateCircleSectionPath(angle, signRadius)}`}>
 	</path>
 
 	<path
-		stroke="black"
+		stroke="var(--line-color)"
 		stroke-width="64"
 		stroke-linecap="round"
 		fill="transparent"
@@ -65,7 +65,7 @@
 	</path>
 
 	<path
-		stroke="white"
+		stroke="var(--label-bg-color)"
 		stroke-width="48"
 		stroke-linecap="round"
 		fill="transparent"
@@ -90,12 +90,13 @@
 		&__symbol {
 			font-size: 3em;
 			font-family: 'Zen Antique Soft', serif;
+			fill: var(--font-color);
 		}
 
 		&__sign {
 			font-size: 1em;
 			font-family: 'Pinyon Script', cursive;
-			text-shadow: 0 0 1px white;
+			fill: var(--font-color);
 
 			transform: translateY(0.175em);
 		}

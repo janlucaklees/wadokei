@@ -8,7 +8,7 @@
 </script>
 
 <path
-	stroke="black"
+	stroke="var(--line-color)"
 	stroke-width="8"
 	fill="transparent"
 	{...$$props}

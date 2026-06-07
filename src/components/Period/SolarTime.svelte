@@ -38,7 +38,7 @@
 
 	<path
 		{id}
-		stroke="black"
+		stroke="var(--line-color)"
 		stroke-width="12"
 		fill="transparent"
 		d={`M ${generateCircleSectionPath(angle, radius * 0.92)}`}>
@@ -50,5 +50,6 @@
 	.solar-time {
 		font-size: 1.2em;
 		font-family: 'Pinyon Script', cursive;
+		fill: var(--font-color);
 	}
 </style>

@@ -59,22 +59,22 @@
 		}
 
 		&__background {
-			fill: #C9F6FF;
-			stroke: black;
+			fill: var(--period-day-bg-color);
+			stroke: var(--line-color);
 		}
 
 		&--sunrise #{$root}__background {
-			fill: #FAFBBD;
+			fill: var(--period-sunrise-bg-color);
 		}
 
 		&--sunset #{$root}__background {
-			fill: #FFADBC;
+			fill: var(--period-sunset-bg-color);
 		}
 
 		&--evening #{$root}__background,
 		&--midnight #{$root}__background,
 		&--before-dawn #{$root}__background {
-			fill: #546bab;
+			fill: var(--period-night-bg-color);
 		}
 	}
 </style>

@@ -18,7 +18,7 @@
 	style={`transform: rotate(${angle}rad);`}>
 
 	<line
-		stroke="black"
+		stroke="var(--hand-color)"
 		stroke-width="75"
 		x1="0"
 		x2="0"
@@ -27,23 +27,27 @@
 	</line>
 
 	<circle
+		fill="var(--hand-color)"
 		r="300">
 	</circle>
 
 	<circle
-		fill="white"
+		fill="var(--page-bg-color)"
 		r="250">
 	</circle>
 
 	<path
+		fill="var(--hand-color)"
 		d="M 0 -{radius + 125} L 50 -{radius + 75} L 0 -{ radius + 25} L -50 -{radius + 75} Z">
 	</path>
 
 	<path
+		fill="var(--hand-color)"
 		d="M 0 -650 L 100 -400 L 0 -500 L -100 -400 Z">
 	</path>
 
 	<path
+		fill="var(--hand-color)"
 		d="M 0 -1480 L 50 -1575 L 0 -1550 L -50 -1575 Z">
 	</path>
 
@@ -61,6 +65,7 @@
 		&__time {
 			font-size: 2em;
 			font-family: 'Pinyon Script', cursive;
+			fill: var(--font-color);
 
 			transform: translateY(0.1em);
 		}

@@ -50,5 +50,6 @@
 	.hour {
 		font-size: 1.5em;
 		font-family: 'Pinyon Script', cursive;
+		fill: var(--font-color);
 	}
 </style>

@@ -1,0 +1,65 @@
+:root {
+	--page-bg-color: #242424;
+	--label-bg-color: #242424;
+
+	--font-color: #fffffb;
+
+	--hand-color: #fcfaf2;
+	--line-color: #bdc0ba;
+
+	--period-day-bg-color: #0d5661;
+	--period-sunset-bg-color: #64363c;
+	--period-night-bg-color: #0f2540;
+	--period-sunrise-bg-color: #985f2a;
+
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	font-weight: 400;
+
+	color-scheme: light dark;
+	color: var(--font-color);
+	background-color: var(--page-bg-color);
+
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-text-size-adjust: 100%;
+}
+
+body {
+	margin: 0;
+	display: flex;
+	place-items: center;
+	min-width: 320px;
+	min-height: 100vh;
+}
+
+#app {
+	width: min(100vh, 100vw);
+	height: min(100vh, 100vw);
+
+	margin: 0 auto;
+	padding: min(8vh, 8vw);
+
+	box-sizing: border-box;
+	text-align: center;
+}
+
+@media (prefers-color-scheme: light) {
+	:root {
+		--page-bg-color: #ffffff;
+		--label-bg-color: #ffffff;
+
+		--font-color: #1c1c1c;
+
+		--line-color: #656765;
+		--hand-color: #434343;
+
+		--period-day-bg-color: #c9f6ff;
+		--period-sunset-bg-color: #ffadbc;
+		--period-night-bg-color: #546bab;
+		--period-sunrise-bg-color: #fafbbd;
+	}
+}
