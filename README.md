@@ -1,6 +1,6 @@
 # Wadokei
 
-An SVG clock for the traditional Japanese time system.
+What does it feel like to measure time the old Japanese way?
 
 <p align="center">
   <img src="./static/screenshot.png" alt="Wadokei clock showing twelve traditional Japanese time periods arranged in a circle with a clock hand pointing to the current time." width="600">
@@ -31,7 +31,7 @@ Each period is labeled with:
 
 A ring of 24 fixed modern hours is also visible on the face, so both time systems can be read side by side.
 
-## Granting location access lets the clock calculate precise local sunrise and sunset times, keeping the periods accurate for your latitude and the time of year.
+Granting location access lets the clock calculate precise local sunrise and sunset times, keeping the periods accurate for your latitude and the time of year.
 
 ## Donations
 
@@ -45,4 +45,4 @@ Thank you for using, sharing, contributing and/or supporting the project in what
 
 ---
 
-**Wadokei** is an animated SVG clock that renders the traditional Japanese time system (和時計), where day and night are divided into six unequal seasonal periods calculated from real sunrise and sunset times at your location.
+**Wadokei** is a digital reimagining of the traditional Japanese wadokei clock (和時計) - a challenge, an experiment in what a centuries-old way of measuring time actually feels like, and a small act of preservation.
