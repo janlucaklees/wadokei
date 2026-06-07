@@ -11,6 +11,10 @@ start:
 stop:
 	docker compose stop
 
+.PHONY=build
+build:
+	docker compose run --rm frontend bun run build
+
 .PHONY=image-build
 image-build:
 	docker build -t ghcr.io/janlucaklees/wadokei:latest .
