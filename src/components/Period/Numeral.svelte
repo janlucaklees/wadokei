@@ -2,10 +2,10 @@
 	// Types
 
 	// Imports
-	import generateCircleSectionPath from "../../lib/generateCircleSectionPath.js";
+	import generateCircleSectionPath from '../../lib/generateCircleSectionPath.js';
 
 	// Components
-	import {v4 as uuid4} from "uuid";
+	import { v4 as uuid4 } from 'uuid';
 
 	// Props
 	export let angle: number;
@@ -14,30 +14,27 @@
 	export let numeral: string;
 	export let strikes: string;
 
-
 	$: strikesRadius = radius * 0.59;
 
-	const numeralPathId = `zodiac-symbol-${uuid4()}`
-	const strikesPathId = `zodiac-sign-${uuid4()}`
+	const numeralPathId = `zodiac-symbol-${uuid4()}`;
+	const strikesPathId = `zodiac-sign-${uuid4()}`;
 </script>
 
-<g
-	class="numeral">
-
+<g class="numeral">
 	<defs>
-
 		<path
 			id={numeralPathId}
 			fill="transparent"
-			d={`M ${generateCircleSectionPath(angle, radius * 0.65)}`}>
+			d={`M ${generateCircleSectionPath(angle, radius * 0.65)}`}
+		>
 		</path>
 
 		<path
 			id={strikesPathId}
 			fill="transparent"
-			d={`M ${generateCircleSectionPath(angle, strikesRadius)}`}>
+			d={`M ${generateCircleSectionPath(angle, strikesRadius)}`}
+		>
 		</path>
-
 	</defs>
 
 	<text class="numeral__symbol">
@@ -45,7 +42,8 @@
 			startOffset="50%"
 			text-anchor="middle"
 			alignment-baseline="middle"
-			xlink:href={`#${numeralPathId}`}>
+			xlink:href={`#${numeralPathId}`}
+		>
 			{numeral}
 		</textPath>
 	</text>
@@ -54,7 +52,8 @@
 		stroke="var(--line-color)"
 		stroke-width="12"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(angle, strikesRadius)}`}>
+		d={`M ${generateCircleSectionPath(angle, strikesRadius)}`}
+	>
 	</path>
 
 	<path
@@ -62,7 +61,8 @@
 		stroke-width="62"
 		stroke-linecap="round"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(0, strikesRadius)}`}>
+		d={`M ${generateCircleSectionPath(0, strikesRadius)}`}
+	>
 	</path>
 
 	<path
@@ -70,7 +70,8 @@
 		stroke-width="52"
 		stroke-linecap="round"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(0, strikesRadius)}`}>
+		d={`M ${generateCircleSectionPath(0, strikesRadius)}`}
+	>
 	</path>
 
 	<text class="numeral__strikes">
@@ -78,16 +79,15 @@
 			startOffset="50%"
 			text-anchor="middle"
 			alignment-baseline="middle"
-			xlink:href={`#${strikesPathId}`}>
+			xlink:href={`#${strikesPathId}`}
+		>
 			{strikes}
 		</textPath>
 	</text>
-
 </g>
 
 <style lang="scss">
 	.numeral {
-
 		&__symbol {
 			font-size: 2em;
 			font-family: 'Zen Antique Soft', serif;
@@ -95,7 +95,7 @@
 		}
 
 		&__strikes {
-			font-size: .75em;
+			font-size: 0.75em;
 			font-family: 'Pinyon Script', cursive;
 			fill: var(--font-color);
 

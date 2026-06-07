@@ -1,6 +1,6 @@
 <script lang="ts">
 	// Imports
-	import generateCircleSectionPath from "../../lib/generateCircleSectionPath.js";
+	import generateCircleSectionPath from '../../lib/generateCircleSectionPath.js';
 
 	// Props
 	export let angle: number;
@@ -12,7 +12,8 @@
 	stroke-width="8"
 	fill="transparent"
 	{...$$props}
-	d={`M ${generateCircleSectionPath(angle, radius)}`}>
+	d={`M ${generateCircleSectionPath(angle, radius)}`}
+>
 </path>
 
 <style lang="scss">

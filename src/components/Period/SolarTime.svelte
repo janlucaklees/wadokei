@@ -2,27 +2,21 @@
 	// Types
 
 	// Imports
-	import generateCircleSectionPath from "../../lib/generateCircleSectionPath.js";
+	import generateCircleSectionPath from '../../lib/generateCircleSectionPath.js';
 
 	// Components
-	import {v4 as uuid4} from "uuid";
+	import { v4 as uuid4 } from 'uuid';
 
 	// Props
 	export let angle: number;
 	export let radius: number;
 
-
-	const id = `solar-time-${uuid4()}`
+	const id = `solar-time-${uuid4()}`;
 </script>
 
-<g
-	class="solar-time">
-
+<g class="solar-time">
 	<defs>
-		<path
-			{id}
-			fill="transparent"
-			d={`M ${generateCircleSectionPath(angle, radius * 0.96)}`}>
+		<path {id} fill="transparent" d={`M ${generateCircleSectionPath(angle, radius * 0.96)}`}>
 		</path>
 	</defs>
 
@@ -31,7 +25,8 @@
 			startOffset="50%"
 			text-anchor="middle"
 			alignment-baseline="middle"
-			xlink:href={`#${id}`}>
+			xlink:href={`#${id}`}
+		>
 			<slot></slot>
 		</textPath>
 	</text>
@@ -41,9 +36,9 @@
 		stroke="var(--line-color)"
 		stroke-width="12"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(angle, radius * 0.92)}`}>
+		d={`M ${generateCircleSectionPath(angle, radius * 0.92)}`}
+	>
 	</path>
-
 </g>
 
 <style lang="scss">

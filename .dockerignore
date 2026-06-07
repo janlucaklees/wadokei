@@ -1,0 +1,13 @@
+.husky/
+node_modules/
+docs/
+.gitignore
+.lintstagedrc.json
+.prettierignore
+.prettierrc
+docker-compose.yml
+Dockerfile
+eslint.config.js
+Makefile
+README.md
+yarn.lock

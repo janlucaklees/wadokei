@@ -2,10 +2,10 @@
 	// Types
 
 	// Imports
-	import generateCircleSectionPath from "../../lib/generateCircleSectionPath.js";
+	import generateCircleSectionPath from '../../lib/generateCircleSectionPath.js';
 
 	// Components
-	import {v4 as uuid4} from "uuid";
+	import { v4 as uuid4 } from 'uuid';
 
 	// Props
 	export let angle: number;
@@ -16,27 +16,25 @@
 
 	$: signRadius = radius * 0.745;
 
-	const symbolPathId = `zodiac-symbol-${uuid4()}`
-	const signPathId = `zodiac-sign-${uuid4()}`
+	const symbolPathId = `zodiac-symbol-${uuid4()}`;
+	const signPathId = `zodiac-sign-${uuid4()}`;
 </script>
 
-<g
-	class="zodiac">
-
+<g class="zodiac">
 	<defs>
-
 		<path
 			id={symbolPathId}
 			fill="transparent"
-			d={`M ${generateCircleSectionPath(angle, radius * 0.82)}`}>
+			d={`M ${generateCircleSectionPath(angle, radius * 0.82)}`}
+		>
 		</path>
 
 		<path
 			id={signPathId}
 			fill="transparent"
-			d={`M ${generateCircleSectionPath(angle, signRadius)}`}>
+			d={`M ${generateCircleSectionPath(angle, signRadius)}`}
+		>
 		</path>
-
 	</defs>
 
 	<text class="zodiac__symbol">
@@ -44,7 +42,8 @@
 			startOffset="50%"
 			text-anchor="middle"
 			alignment-baseline="middle"
-			xlink:href={`#${symbolPathId}`}>
+			xlink:href={`#${symbolPathId}`}
+		>
 			{symbol}
 		</textPath>
 	</text>
@@ -53,7 +52,8 @@
 		stroke="var(--line-color)"
 		stroke-width="8"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(angle, signRadius)}`}>
+		d={`M ${generateCircleSectionPath(angle, signRadius)}`}
+	>
 	</path>
 
 	<path
@@ -61,7 +61,8 @@
 		stroke-width="64"
 		stroke-linecap="round"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(0.2, signRadius)}`}>
+		d={`M ${generateCircleSectionPath(0.2, signRadius)}`}
+	>
 	</path>
 
 	<path
@@ -69,7 +70,8 @@
 		stroke-width="48"
 		stroke-linecap="round"
 		fill="transparent"
-		d={`M ${generateCircleSectionPath(0.2, signRadius)}`}>
+		d={`M ${generateCircleSectionPath(0.2, signRadius)}`}
+	>
 	</path>
 
 	<text class="zodiac__sign">
@@ -77,16 +79,15 @@
 			startOffset="50%"
 			text-anchor="middle"
 			alignment-baseline="middle"
-			xlink:href={`#${signPathId}`}>
+			xlink:href={`#${signPathId}`}
+		>
 			{sign}
 		</textPath>
 	</text>
-
 </g>
 
 <style lang="scss">
 	.zodiac {
-
 		&__symbol {
 			font-size: 3em;
 			font-family: 'Zen Antique Soft', serif;

@@ -1,0 +1,10 @@
+services:
+  frontend:
+    image: oven/bun:1-alpine
+    command: bun run dev
+    working_dir: /usr/src/app
+    user: '${UID}:${GID}'
+    ports:
+      - '5173:5173'
+    volumes:
+      - ./:/usr/src/app
