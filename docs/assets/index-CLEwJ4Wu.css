@@ -8,38 +8,46 @@
 	--period-sunset-bg-color: #64363c;
 	--period-night-bg-color: #0f2540;
 	--period-sunrise-bg-color: #985f2a;
-	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
-	font-size: 16px;
-	line-height: 1.5;
-	font-weight: 400;
+	--lightningcss-light: initial;
+	--lightningcss-dark: ;
 	color-scheme: light dark;
 	color: var(--font-color);
 	background-color: var(--page-bg-color);
 	font-synthesis: none;
-	text-rendering: optimizeLegibility;
+	text-rendering: optimizelegibility;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	-webkit-text-size-adjust: 100%;
+	font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+	font-size: 16px;
+	font-weight: 400;
+	line-height: 1.5;
+}
+@media (prefers-color-scheme: dark) {
+	:root {
+		--lightningcss-light: ;
+		--lightningcss-dark: initial;
+	}
 }
 body {
-	margin: 0;
-	display: flex;
 	place-items: center;
 	min-width: 320px;
 	min-height: 100vh;
+	margin: 0;
+	display: flex;
 }
 #app {
+	box-sizing: border-box;
+	text-align: center;
 	width: min(100vh, 100vw);
 	height: min(100vh, 100vw);
 	margin: 0 auto;
 	padding: min(8vh, 8vw);
-	box-sizing: border-box;
-	text-align: center;
 }
 @media (prefers-color-scheme: light) {
 	:root {
-		--page-bg-color: #ffffff;
-		--label-bg-color: #ffffff;
+		--page-bg-color: #fff;
+		--label-bg-color: #fff;
 		--font-color: #1c1c1c;
 		--line-color: #656765;
 		--hand-color: #434343;
@@ -49,77 +57,77 @@ body {
 		--period-sunrise-bg-color: #fafbbd;
 	}
 }
-.solar-time.svelte-u3gexg {
-	font-size: 1.2em;
+.solar-time.svelte-gt6vj2 {
+	fill: var(--font-color);
 	font-family:
 		Pinyon Script,
 		cursive;
-	fill: var(--font-color);
+	font-size: 1.2em;
 }
-.zodiac__symbol.svelte-1li1c72 {
-	font-size: 3em;
+.zodiac__symbol.svelte-17970s2 {
+	fill: var(--font-color);
 	font-family:
 		Zen Antique Soft,
 		serif;
-	fill: var(--font-color);
+	font-size: 3em;
 }
-.zodiac__sign.svelte-1li1c72 {
-	font-size: 1em;
+.zodiac__sign.svelte-17970s2 {
+	fill: var(--font-color);
 	font-family:
 		Pinyon Script,
 		cursive;
-	fill: var(--font-color);
+	font-size: 1em;
 	transform: translateY(0.175em);
 }
-.numeral__symbol.svelte-w8a0yj {
-	font-size: 2em;
+.numeral__symbol.svelte-7sa9bs {
+	fill: var(--font-color);
 	font-family:
 		Zen Antique Soft,
 		serif;
-	fill: var(--font-color);
+	font-size: 2em;
 }
-.numeral__strikes.svelte-w8a0yj {
-	font-size: 0.75em;
+.numeral__strikes.svelte-7sa9bs {
+	fill: var(--font-color);
 	font-family:
 		Pinyon Script,
 		cursive;
-	fill: var(--font-color);
+	font-size: 0.75em;
 	transform: translate(-0.1em, 0.175em);
 }
-.period__solar-time.svelte-tuc3kb.svelte-tuc3kb {
+.period__solar-time.svelte-1ws4mob {
 	font-size: 60px;
 }
-.period__background.svelte-tuc3kb.svelte-tuc3kb {
+.period__background.svelte-1ws4mob {
 	fill: var(--period-day-bg-color);
 	stroke: var(--line-color);
 }
-.period--sunrise.svelte-tuc3kb .period__background.svelte-tuc3kb {
+.period--sunrise.svelte-1ws4mob .period__background:where(.svelte-1ws4mob) {
 	fill: var(--period-sunrise-bg-color);
 }
-.period--sunset.svelte-tuc3kb .period__background.svelte-tuc3kb {
+.period--sunset.svelte-1ws4mob .period__background:where(.svelte-1ws4mob) {
 	fill: var(--period-sunset-bg-color);
 }
-.period--evening.svelte-tuc3kb .period__background.svelte-tuc3kb,
-.period--midnight.svelte-tuc3kb .period__background.svelte-tuc3kb,
-.period--before-dawn.svelte-tuc3kb .period__background.svelte-tuc3kb {
+.period--evening.svelte-1ws4mob .period__background:where(.svelte-1ws4mob),
+.period--midnight.svelte-1ws4mob .period__background:where(.svelte-1ws4mob),
+.period--before-dawn.svelte-1ws4mob .period__background:where(.svelte-1ws4mob) {
 	fill: var(--period-night-bg-color);
 }
-.hour.svelte-k4102o {
+.hour.svelte-11z1nbm {
+	fill: var(--font-color);
+	font-family:
+		Pinyon Script,
+		cursive;
 	font-size: 1.5em;
-	font-family:
-		Pinyon Script,
-		cursive;
-	fill: var(--font-color);
 }
-.hand__time.svelte-957pui {
-	font-size: 2em;
+.hand__time.svelte-1v7leuj {
+	fill: var(--font-color);
 	font-family:
 		Pinyon Script,
 		cursive;
-	fill: var(--font-color);
+	font-size: 2em;
 	transform: translateY(0.1em);
 }
-.wadokei.svelte-1hly9kz {
+.wadokei.svelte-37vxvo {
 	width: 100%;
 	height: 100%;
 	font-size: calc(var(--radius) * 0.04 * 1px);
