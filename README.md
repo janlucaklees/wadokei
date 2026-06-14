@@ -39,7 +39,7 @@ The most valuable contribution to this project is your time and ideas. Open sour
 
 If you would like to support the project financially, you can do so through the following options:
 
-- [PayPal](https://www.paypal.com/donate/?hosted_button_id=9ZYAV83CAZ5A4)
+- [PayPal](https://www.paypal.com/donate/?hosted_button_id=8DBMRF3D9GUFY)
 
 Thank you for using, sharing, contributing and/or supporting the project in whatever way makes sense to you.
 
